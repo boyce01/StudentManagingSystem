@@ -1,0 +1,5 @@
+E:\Experience Store\Visual Studio 2012保存\StudentManagementSystem\Model\bin\Debug\Model.dll
+E:\Experience Store\Visual Studio 2012保存\StudentManagementSystem\Model\bin\Debug\Model.pdb
+E:\Experience Store\Visual Studio 2012保存\StudentManagementSystem\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+E:\Experience Store\Visual Studio 2012保存\StudentManagementSystem\Model\obj\Debug\Model.dll
+E:\Experience Store\Visual Studio 2012保存\StudentManagementSystem\Model\obj\Debug\Model.pdb

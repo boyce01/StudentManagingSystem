@@ -1,0 +1,7 @@
+E:\Experience Store\Visual Studio 2012保存\StudentManagementSystem\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\Experience Store\Visual Studio 2012保存\StudentManagementSystem\DAL\bin\Debug\DAL.dll
+E:\Experience Store\Visual Studio 2012保存\StudentManagementSystem\DAL\bin\Debug\DAL.pdb
+E:\Experience Store\Visual Studio 2012保存\StudentManagementSystem\DAL\obj\Debug\DAL.dll
+E:\Experience Store\Visual Studio 2012保存\StudentManagementSystem\DAL\obj\Debug\DAL.pdb
+E:\Experience Store\Visual Studio 2012保存\StudentManagementSystem\DAL\bin\Debug\Model.dll
+E:\Experience Store\Visual Studio 2012保存\StudentManagementSystem\DAL\bin\Debug\Model.pdb
