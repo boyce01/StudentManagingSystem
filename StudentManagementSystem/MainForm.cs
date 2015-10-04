@@ -293,7 +293,7 @@ namespace StudentManagementSystem
         /// <param name="e"></param>
         private void btnExport_Click(object sender, EventArgs e)
         {
-            #region 创建导出excel
+            #region create and export excel
             ////创建一个工作本对象
             //HSSFWorkbook workbook = new HSSFWorkbook();
             ////通过工作本对象，创建一个页
@@ -309,11 +309,34 @@ namespace StudentManagementSystem
             //cell2.SetCellValue(111); 
             #endregion
 
+            //创建一个工作本对象
             HSSFWorkbook workbook = new HSSFWorkbook();
+            //通过工作本对象，创建一个页
             HSSFSheet sheet = workbook.CreateSheet("第一页");
-            //HSSFRow row=sheet.cr
+            //创建第一行
+            HSSFRow rowHead = sheet.CreateRow(0);
+            //在已创建的第一行中，创建5个列，并赋值
+            rowHead.CreateCell(0).SetCellValue("No.");
+            rowHead.CreateCell(1).SetCellValue("NAME");
+            rowHead.CreateCell(2).SetCellValue("AGE");
+            rowHead.CreateCell(3).SetCellValue("GENDER");
+            rowHead.CreateCell(4).SetCellValue("ADDRESS");
+            //可写成：HSSFCell cell0 = rowHead.CreateCell(0);
+            //cell0.SetCellValue("No.");
 
-
+            //循环建立行
+            for (int i = 0; i < dgvMain.RowCount; i++) //不能让i=1,因为从面板上开始遍历
+            {
+                HSSFRow row = sheet.CreateRow(i + 1); //从第2行开始建立行，第一行为列名
+                //循环建立列，并给创建的列对象直接赋值
+                for (int j = 0; j < 5; j++)
+                {
+                    row.CreateCell(j).SetCellValue(dgvMain.Rows[i].Cells[j].Value.ToString());
+                    //上面代码也可写成：HSSFCell cell = row.CreateCell(j);//创建第j列
+                    //cell..SetCellValue(dgvMain.Rows[i].Cells[j].Value.ToString());
+                }
+            }
+            //通过FileStream导出内存中的exeel表
             using (FileStream fs = new FileStream(@"C:\Users\up\Desktop\1.xls", FileMode.Create, FileAccess.Write))
             {
                 workbook.Write(fs);
