@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -58,6 +59,13 @@ namespace StudentManagementSystem
             cmbPage.Items.Add(20);
             cmbPage.Items.Add(50);
             cmbPage.SelectedIndex = 0;
+            #endregion
+
+            #region 加载时，显示性别查询下拉框
+            cmbGender.Items.Add("不限");
+            cmbGender.Items.Add("男");
+            cmbGender.Items.Add("女");
+            cmbGender.SelectedIndex = 0;
             #endregion
         }
 
@@ -287,7 +295,7 @@ namespace StudentManagementSystem
         }
 
         /// <summary>
-        /// 导出列表
+        /// 导出Excel列表
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -350,6 +358,40 @@ namespace StudentManagementSystem
                 }
             }
 
+        }//btnExport_Click
+
+        /// <summary>
+        /// select student infor by name or gender
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            //声明2个list泛型集合，1个存sql语句中where后面的查询条件，另1个存sqlparameter
+            //因为不确定用户是否选择姓名or性别，故用List泛型集合（集合中可以随意添加元素）
+            List<string> listWhere = new List<string>();
+            List<SqlParameter> listSqlpara = new List<SqlParameter>();
+            //若有name，就存入2个集合中
+            if (!(string.IsNullOrEmpty(txtName.Text.Trim())))
+            {
+                listWhere.Add("Name=@name");
+                listSqlpara.Add(new SqlParameter("@name", SqlDbType.NVarChar) { Value = txtName.Text.Trim() });
+            }
+            if (cmbGender.SelectedIndex != 0)
+            {
+                listWhere.Add("Gender=@gender");
+                listSqlpara.Add(new SqlParameter("@gender", SqlDbType.NVarChar) { Value = cmbGender.Text });
+                //当下来框是DropDownList格式时，必须用“对象名.Text”取值 
+            }
+
+            string sql = "select * from Student ";
+            if (listWhere.Count > 0) //若用户选择了查询条件
+            {
+                sql += " where " + string.Join(" and ", listWhere.ToArray());
+                //string.Join():会在每个字符串直接插入指定字符
+            }
+            List<Model.Student> stuList = stu.GetStuTableByNameOrGender(sql, listSqlpara.ToArray());
+            dgvMain.DataSource = stuList;
         }
 
     }

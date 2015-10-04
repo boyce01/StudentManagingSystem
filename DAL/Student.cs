@@ -74,6 +74,28 @@ namespace DAL
             return stuList;
         }
 
+        /// <summary>
+        /// 根据name,gender查询student infor
+        /// </summary>
+        /// <param name="sql">用于查询的sql的语句</param>
+        /// <param name="paras">sql语句所需的参数</param>
+        /// <returns></returns>
+        public List<Model.Student> GetStuTableByNameOrGender(string sql, SqlParameter[] paras)
+        {
+            DataTable dt = SqlHelper.ExecuteDataTable(sql, paras);
+            List<Model.Student> stuList = null;
+            if (dt.Rows.Count > 0)
+            {
+                stuList = new List<Model.Student>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    //获得每个行元素
+                    DataRow dr = dt.Rows[i];
+                    stuList.Add(GetModel(dr));
+                }
+            }
+            return stuList;
+        }
 
         /// <summary>
         /// DAL：修改学员信息时，返回的一行数据

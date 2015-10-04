@@ -49,6 +49,11 @@
             this.lblPage = new System.Windows.Forms.Label();
             this.lkDown = new System.Windows.Forms.LinkLabel();
             this.lkUp = new System.Windows.Forms.LinkLabel();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbGender = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnSelect = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -147,7 +152,7 @@
             this.dgvMain.ReadOnly = true;
             this.dgvMain.RowTemplate.Height = 27;
             this.dgvMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMain.Size = new System.Drawing.Size(848, 499);
+            this.dgvMain.Size = new System.Drawing.Size(874, 499);
             this.dgvMain.TabIndex = 1;
             // 
             // ID
@@ -190,12 +195,17 @@
             // 
             // toolStripContainer1.ContentPanel
             // 
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.btnSelect);
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.label2);
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.cmbGender);
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.label1);
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.txtName);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.panel1);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.menuStrip1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(848, 62);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(874, 62);
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 2);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(848, 62);
+            this.toolStripContainer1.Size = new System.Drawing.Size(874, 62);
             this.toolStripContainer1.TabIndex = 3;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -205,7 +215,7 @@
             this.panel1.Controls.Add(this.lblPage);
             this.panel1.Controls.Add(this.lkDown);
             this.panel1.Controls.Add(this.lkUp);
-            this.panel1.Location = new System.Drawing.Point(505, 25);
+            this.panel1.Location = new System.Drawing.Point(521, 28);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(340, 34);
             this.panel1.TabIndex = 5;
@@ -251,11 +261,55 @@
             this.lkUp.Text = "上一页";
             this.lkUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lkUp_LinkClicked);
             // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(80, 31);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(115, 25);
+            this.txtName.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 15);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "姓名：";
+            // 
+            // cmbGender
+            // 
+            this.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGender.FormattingEnabled = true;
+            this.cmbGender.Location = new System.Drawing.Point(266, 33);
+            this.cmbGender.Name = "cmbGender";
+            this.cmbGender.Size = new System.Drawing.Size(108, 23);
+            this.cmbGender.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(208, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 15);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "性别：";
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(395, 30);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(82, 29);
+            this.btnSelect.TabIndex = 5;
+            this.btnSelect.Text = "查询";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(848, 537);
+            this.ClientSize = new System.Drawing.Size(873, 537);
             this.Controls.Add(this.toolStripContainer1);
             this.Controls.Add(this.dgvMain);
             this.IsMdiContainer = true;
@@ -299,5 +353,10 @@
         private System.Windows.Forms.ToolStripMenuItem btnBack2List;
         private System.Windows.Forms.ToolStripMenuItem btnRemove;
         private System.Windows.Forms.ToolStripMenuItem btnExport;
+        private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbGender;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtName;
     }
 }
