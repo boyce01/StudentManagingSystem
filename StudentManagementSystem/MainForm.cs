@@ -340,13 +340,7 @@ namespace StudentManagementSystem
             using (SaveFileDialog sf = new SaveFileDialog())
             {
                 sf.Filter = "Excel Table|*.xls";
-                sf.ShowDialog();
-                if (string.IsNullOrEmpty(sf.FileName)) //未选择保存路径
-                {
-                    MessageBox.Show("Please select save path");
-                    return;
-                }
-                else
+                if (sf.ShowDialog() == DialogResult.OK)
                 {
                     //通过FileStream导出内存中的exeel表
                     using (FileStream fs = new FileStream(sf.FileName, FileMode.Create, FileAccess.Write))
@@ -354,7 +348,6 @@ namespace StudentManagementSystem
                         workbook.Write(fs);
                     }
                 }
-
             }
 
         }

@@ -33,6 +33,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnsDeleteS = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnExport = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRecycle = new System.Windows.Forms.ToolStripMenuItem();
             this.btnBack2List = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRemove = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +49,6 @@
             this.lblPage = new System.Windows.Forms.Label();
             this.lkDown = new System.Windows.Forms.LinkLabel();
             this.lkUp = new System.Windows.Forms.LinkLabel();
-            this.btnExport = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -70,7 +70,7 @@
             this.btnRemove});
             this.menuStrip1.Location = new System.Drawing.Point(0, 3);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(763, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(671, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -101,6 +101,13 @@
             this.btnsDeleteS.Size = new System.Drawing.Size(81, 24);
             this.btnsDeleteS.Text = "批量删除";
             this.btnsDeleteS.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(111, 24);
+            this.btnExport.Text = "导出当前列表";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnRecycle
             // 
@@ -243,13 +250,6 @@
             this.lkUp.TabStop = true;
             this.lkUp.Text = "上一页";
             this.lkUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lkUp_LinkClicked);
-            // 
-            // btnExport
-            // 
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(111, 24);
-            this.btnExport.Text = "导出当前列表";
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // MainForm
             // 
