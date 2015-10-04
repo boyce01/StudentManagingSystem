@@ -336,10 +336,25 @@ namespace StudentManagementSystem
                     //cell..SetCellValue(dgvMain.Rows[i].Cells[j].Value.ToString());
                 }
             }
-            //通过FileStream导出内存中的exeel表
-            using (FileStream fs = new FileStream(@"C:\Users\up\Desktop\1.xls", FileMode.Create, FileAccess.Write))
+            //建立保存文本对话框：
+            using (SaveFileDialog sf = new SaveFileDialog())
             {
-                workbook.Write(fs);
+                sf.Filter = "Excel Table|*.xls";
+                sf.ShowDialog();
+                if (string.IsNullOrEmpty(sf.FileName)) //未选择保存路径
+                {
+                    MessageBox.Show("Please select save path");
+                    return;
+                }
+                else
+                {
+                    //通过FileStream导出内存中的exeel表
+                    using (FileStream fs = new FileStream(sf.FileName, FileMode.Create, FileAccess.Write))
+                    {
+                        workbook.Write(fs);
+                    }
+                }
+
             }
 
         }
