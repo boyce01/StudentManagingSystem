@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace StudentManagementSystem
 {
     public partial class MainForm : Form
@@ -276,7 +277,6 @@ namespace StudentManagementSystem
         private void btnRemove_Click(object sender, EventArgs e)
         {
             //把数据库中IsDel字段的值从1改成0(从true改成false):
-
             int selectedId = GetIdFromDGV();
             if (selectedId == -1)
             {
@@ -390,6 +390,7 @@ namespace StudentManagementSystem
                 sql += " where " + string.Join(" and ", listWhere.ToArray());
                 //string.Join():会在每个字符串直接插入指定字符
             }
+            //search stu by name or gender
             List<Model.Student> stuList = stu.GetStuTableByNameOrGender(sql, listSqlpara.ToArray());
             dgvMain.DataSource = stuList;
         }
