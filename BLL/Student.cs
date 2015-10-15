@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,18 @@ namespace BLL
         {
             return stu.GetStudentTable(_pageIndex, _pageSize);
         }
+
+        /// <summary>
+        /// 根据name,gender查询student infor
+        /// </summary>
+        /// <param name="sql">用于查询的sql的语句</param>
+        /// <param name="paras">sql语句所需的参数</param>
+        /// <returns></returns>
+        public List<Model.Student> GetStuTableByNameOrGender(string sql, SqlParameter[] paras)
+        {
+            return stu.GetStuTableByNameOrGender(sql, paras);
+        }
+
 
         /// <summary>
         /// BLL：修改学员信息时，返回的一行数据
